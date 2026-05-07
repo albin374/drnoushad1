@@ -106,6 +106,10 @@
     );
   }
 
+  // On low-performance / mobile devices: keep the simple hero intro only.
+  // Skip all pinned / scroll-driven sequences to make scrolling smoother.
+  if (isLowPerf) return;
+
   // Scroll-driven cinematic morph (pinned) starts from the fully revealed intro state.
   const scrollTl = gsap.timeline({
     defaults: { ease: "none" },

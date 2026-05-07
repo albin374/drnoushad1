@@ -117,10 +117,12 @@ body {
 
 @media (max-width: 700px) {
   .hero-nav {
-    left: 14px;
+    top: clamp(10px, 1.6vw, 18px);
+    left: auto;
+    right: 14px;
     transform: none;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
   }
 
   .hero-nav__toggle {
@@ -128,23 +130,74 @@ body {
     flex-direction: column;
     gap: 6px;
     padding: 6px 4px 4px;
+    align-self: flex-end;
   }
 
   .hero-nav__list {
-    display: none;
+    position: absolute;
+    top: 44px;
+    right: 0;
+    z-index: 10;
+
+    display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
-    padding: 10px 4px 6px;
+    margin-top: 0;
+    padding: 16px 18px;
+    width: 230px;
+    align-items: flex-end;
+    text-align: right;
+
+    border-radius: 14px;
+    background:
+      linear-gradient(180deg, rgba(5, 6, 10, 0.65) 0%, rgba(5, 6, 10, 0.82) 100%);
+    border: 1px solid rgba(214, 167, 106, 0.22);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease,
+      max-height 260ms ease;
   }
 
   .hero-nav.is-open .hero-nav__list {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 320px;
+    pointer-events: auto;
   }
 
   .hero-nav__link {
     letter-spacing: 0.26em;
     font-size: 10px;
+    text-align: right;
+    padding: 6px 0;
+  }
+
+  .hero-nav__list .hero-nav__link[href="#connect"] {
+    padding: 12px 18px;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(214, 167, 106, 0.95);
+    color: #05060a;
+    border-radius: 2px;
+    border: 1px solid rgba(214, 167, 106, 0.72);
+    text-shadow: none;
+    transform: none !important;
+  }
+
+  .hero-nav__list .hero-nav__link[href="#connect"]:hover {
+    background: rgba(214, 167, 106, 1);
+    color: #05060a;
+    text-shadow: none;
+    transform: none !important;
+    box-shadow: 0 0 0 1px rgba(214, 167, 106, 0.35), 0 20px 60px rgba(0, 0, 0, 0.5);
   }
 }
 
