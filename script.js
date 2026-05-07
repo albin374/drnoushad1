@@ -587,3 +587,26 @@
   }
 })();
 
+// Mobile hero nav: hamburger dropdown (non-sticky, hero-only)
+(() => {
+  const nav = document.querySelector(".hero-nav");
+  if (!nav) return;
+  const toggle = nav.querySelector(".hero-nav__toggle");
+  const list = nav.querySelector(".hero-nav__list");
+  if (!toggle || !list) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    const open = !nav.classList.contains("is-open");
+    setOpen(open);
+  });
+
+  list.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+})();
+

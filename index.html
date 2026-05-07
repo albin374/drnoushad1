@@ -19,10 +19,24 @@
       </a>
       <section class="hero" id="about" aria-label="Hero">
         <nav class="hero-nav" aria-label="Primary">
-          <a class="hero-nav__link" href="#about">About</a>
-          <a class="hero-nav__link" href="#businesses">Businesses</a>
-          <a class="hero-nav__link" href="#legacy">Legacy</a>
-          <a class="hero-nav__link" href="#connect">Connect</a>
+          <button
+            class="hero-nav__toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="hero-nav-list"
+          >
+            <span class="hero-nav__toggle-bar" aria-hidden="true"></span>
+            <span class="hero-nav__toggle-bar" aria-hidden="true"></span>
+            <span class="hero-nav__toggle-bar" aria-hidden="true"></span>
+          </button>
+
+          <div class="hero-nav__list" id="hero-nav-list">
+            <a class="hero-nav__link" href="#about">About</a>
+            <a class="hero-nav__link" href="#businesses">Businesses</a>
+            <a class="hero-nav__link" href="#legacy">Legacy</a>
+            <a class="hero-nav__link" href="#connect">Connect</a>
+          </div>
         </nav>
         <img class="hero__img" src="./media/dr.jpeg" alt="Doctor" />
         <img class="hero__img hero__img--blur" src="./media/dr.jpeg" alt="" aria-hidden="true" />
@@ -254,16 +268,6 @@
       </section>
 
       <section class="legacy-scene" id="legacy" aria-label="The THESAY Legacy">
-        <video
-          class="legacy-scene__video"
-          src="./media/thirdsection.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          aria-hidden="true"
-        ></video>
         <div class="legacy-scene__backdrop" aria-hidden="true"></div>
         <div class="legacy-scene__glow legacy-scene__glow--a" aria-hidden="true"></div>
         <div class="legacy-scene__glow legacy-scene__glow--b" aria-hidden="true"></div>
