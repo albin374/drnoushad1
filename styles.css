@@ -946,9 +946,44 @@ body {
     height: 100svh;
   }
 
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.12) 38%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+  }
+
+  .hero__kicker {
+    color: rgba(214, 167, 106, 0.96);
+    margin-top: -18px;
+    text-shadow:
+      0 10px 34px rgba(0, 0, 0, 0.72),
+      0 0 18px rgba(0, 0, 0, 0.45);
+  }
+
   .hero__title {
     font-size: clamp(36px, 9vw, 64px);
     line-height: 1.06;
+    color: rgba(255, 255, 255, 0.96);
+    text-shadow:
+      0 18px 58px rgba(0, 0, 0, 0.78),
+      0 0 22px rgba(0, 0, 0, 0.46);
+  }
+
+  .hero__title .hero__line:nth-child(2) {
+    color: rgba(255, 220, 170, 0.92);
+  }
+
+  .hero__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 14px 44px rgba(0, 0, 0, 0.72);
   }
 
   .hero__img {
