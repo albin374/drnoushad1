@@ -741,6 +741,20 @@ body {
 }
 
 @media (max-width: 700px) {
+  .hero {
+    height: 100svh;
+  }
+
+  .hero__img {
+    /* Keep face/head in frame on tall mobile screens */
+    object-position: 68% 14%;
+    transform: scale(1.08);
+  }
+
+  .hero__img--blur {
+    transform: scale(1.14);
+  }
+
   .hero__content > * {
     text-align: center;
   }
