@@ -11,26 +11,14 @@
   const saveData = navigator.connection?.saveData === true;
   const lowCpu = (navigator.hardwareConcurrency ?? 8) <= 4;
   const lowMemory = (navigator.deviceMemory ?? 8) <= 4;
-  // Keep animations on mobile, but reduce the heaviest work when needed.
-  const isVeryLowPerf = saveData || lowCpu || lowMemory;
-  const isLowPerf = isMobile || isVeryLowPerf;
-  const useBlurFilters = !(isMobile || isVeryLowPerf);
+  const isLowPerf = isMobile || saveData || lowCpu || lowMemory;
+  const useBlurFilters = !isLowPerf;
 
   document.body.classList.toggle("performance-mode", isLowPerf);
-  ScrollTrigger.config({
-    limitCallbacks: true,
-    ignoreMobileResize: true,
-    // Reduce mobile refresh churn (pinning + address bar resize can be expensive).
-    autoRefreshEvents: isMobile ? "visibilitychange,DOMContentLoaded,load" : undefined,
-  });
-
-  // Keep animation smooth on normal phones; only cap FPS on truly weak devices.
-  if (isVeryLowPerf) {
+  ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
+  if (isLowPerf) {
     gsap.ticker.fps(45);
   }
-
-  // Reduce scroll/pin jank on touch devices
-  gsap.ticker.lagSmoothing(1000, 16);
 
   const section = document.querySelector(".hero");
   if (!section) return;
@@ -127,9 +115,7 @@
       end: isLowPerf ? "+=190%" : "+=240%",
       scrub: isLowPerf ? 0.6 : 1.15,
       pin: true,
-      // On mobile/touch, transform pinning tends to be smoother than fixed pinning.
-      pinType: isMobile ? "transform" : "fixed",
-      anticipatePin: isMobile ? 0.6 : 1,
+      anticipatePin: 1,
       fastScrollEnd: true,
       invalidateOnRefresh: true,
     },
