@@ -1542,6 +1542,17 @@ a.venture-card:active {
   }
 }
 
+@media (max-width: 700px) {
+  .portfolio {
+    min-height: auto;
+    padding-bottom: clamp(40px, 6vw, 70px);
+  }
+
+  .quote-scene {
+    margin-top: -2.5vh;
+  }
+}
+
 /* Auto performance mode for smoother scrolling on weaker devices */
 .performance-mode .hero__img--blur,
 .performance-mode .impact-scene__glow,
