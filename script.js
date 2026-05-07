@@ -38,6 +38,13 @@
   const chapter2 = section.querySelector(".hero__chapter--two");
   const chapter2Lines = chapter2 ? Array.from(chapter2.querySelectorAll(".chapter__line")) : [];
 
+  // Use alternate hero banner on mobile only.
+  const desktopHeroSrc = "./media/dr.jpeg";
+  const mobileHeroSrc = "./media/dr3.jpeg";
+  const heroSrc = isMobile ? mobileHeroSrc : desktopHeroSrc;
+  if (bgImg) bgImg.src = heroSrc;
+  if (bgImgBlur) bgImgBlur.src = heroSrc;
+
   // Initial state
   gsap.set(allLines, { autoAlpha: 0, y: 26 });
   gsap.set([kicker, subtitle], { autoAlpha: 0, y: 26 });
