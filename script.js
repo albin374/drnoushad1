@@ -39,7 +39,7 @@
   const chapter2Lines = chapter2 ? Array.from(chapter2.querySelectorAll(".chapter__line")) : [];
 
   // Use alternate hero banner on mobile only.
-  const desktopHeroSrc = "./media/dr.jpeg";
+  const desktopHeroSrc = "./media/dr4.jpeg";
   const mobileHeroSrc = "./media/dr3.jpeg";
   const heroSrc = isMobile ? mobileHeroSrc : desktopHeroSrc;
   if (bgImg) bgImg.src = heroSrc;
