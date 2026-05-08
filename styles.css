@@ -1354,11 +1354,11 @@ a.venture-card:active {
 .quote-scene {
   position: relative;
   margin-top: -15.5vh;
-  height: 100vh;
-  min-height: 100vh;
+  height: auto;
+  min-height: clamp(620px, 84vh, 860px);
   display: grid;
   place-items: center;
-  padding: 0;
+  padding: clamp(30px, 5vh, 56px) 0;
   background: transparent;
   overflow: hidden;
   isolation: isolate;
@@ -1441,12 +1441,12 @@ a.venture-card:active {
   margin: 0 auto;
   text-align: center;
   transform: translateZ(0);
-  padding: 24px 0;
+  padding: clamp(8px, 1.8vh, 18px) 0;
 }
 
 .quote-scene__content {
-  max-width: 720px;
-  margin: 0 auto clamp(34px, 5vh, 52px);
+  max-width: 700px;
+  margin: 0 auto clamp(20px, 3.2vh, 34px);
 }
 
 .quote-scene__label {
@@ -1545,9 +1545,17 @@ a.venture-card:active {
 @media (max-width: 700px) {
   .quote-scene {
     margin-top: 0;
-    height: 100vh;
-    min-height: 100vh;
+    height: auto;
+    min-height: clamp(420px, 72vh, 620px);
+    padding: clamp(36px, 8vh, 68px) 0;
+  }
+
+  .quote-scene__inner {
     padding: 0;
+  }
+
+  .quote-scene__content {
+    margin: 0 auto clamp(20px, 3vh, 30px);
   }
 
   .quote-scene__text {
