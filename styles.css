@@ -540,7 +540,7 @@ body {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: clamp(18px, 3vw, 46px);
   padding-bottom: 28px;
   border-bottom: 1px solid rgba(214, 167, 106, 0.16);
@@ -616,6 +616,12 @@ body {
 
 .footer-built span {
   color: rgba(214, 167, 106, 0.9);
+}
+
+@media (min-width: 981px) {
+  .footer-grid>.footer-col:nth-child(2) .footer-kicker {
+    margin-top: clamp(8px, 1vw, 14px);
+  }
 }
 
 @media (max-width: 980px) {
@@ -730,7 +736,7 @@ body {
 }
 
 .hero__kicker {
-  margin: 0 0 14px;
+  margin: 0 0 6px;
   font-family: var(--font-sans);
   font-size: clamp(14px, 1.4vw, 18px);
   letter-spacing: 0.28em;
@@ -749,6 +755,7 @@ body {
   font-size: clamp(28px, 4vw, 56px);
   color: var(--color-fg-strong);
   text-shadow: 0 14px 55px rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
 }
 
 .hero__subtitle {
@@ -761,6 +768,7 @@ body {
   text-transform: none;
   color: rgba(214, 191, 156, 0.62);
   text-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  margin-top: -180px;
 }
 
 .hero__line {
@@ -769,7 +777,7 @@ body {
 }
 
 .hero__title .hero__line {
-  display: block;
+  display: inline;
 }
 
 /* Hero signature styling: second line gold + italic */
@@ -939,6 +947,18 @@ body {
 }
 
 @media (max-width: 700px) {
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+    padding-bottom: clamp(64px, 12vh, 108px);
+  }
+
+  .hero__content > * {
+    width: min(1100px, 100%);
+  }
+
   .hero {
     height: 100svh;
   }
@@ -956,8 +976,14 @@ body {
   }
 
   .hero__kicker {
+    position: absolute;
+    top: clamp(92px, 15vw, 116px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    text-align: center;
     color: rgba(214, 167, 106, 0.96);
-    margin-top: -18px;
+    margin: 0;
     text-shadow:
       0 10px 34px rgba(0, 0, 0, 0.72),
       0 0 18px rgba(0, 0, 0, 0.45);
@@ -966,10 +992,15 @@ body {
   .hero__title {
     font-size: clamp(36px, 9vw, 64px);
     line-height: 1.06;
+    white-space: normal;
     color: rgba(255, 255, 255, 0.96);
     text-shadow:
       0 18px 58px rgba(0, 0, 0, 0.78),
       0 0 22px rgba(0, 0, 0, 0.46);
+  }
+
+  .hero__title .hero__line {
+    display: block;
   }
 
   .hero__title .hero__line:nth-child(2) {
@@ -977,6 +1008,7 @@ body {
   }
 
   .hero__subtitle {
+    margin-top: 0;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 14px 44px rgba(0, 0, 0, 0.72);
   }
